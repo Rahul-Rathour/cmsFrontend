@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const StudentSignin = () => {
+    const[email,setEmail] = useState('')
+    const[password,setPassword] = useState('')
+    const[isopen,setIsopen] = useState('true')
+
+    const handleRegister = () =>{
+        setIsopen(!isopen);
+        console.log(isopen);
+    }
     return (
         <>
             <div>
-                <div className="bg-white relative lg:py-20">
+                <div className="bg-white relative">
                     <div
                         className="flex flex-col items-center justify-between pt-0 pr-10 pb-0 pl-10 mt-0 mr-auto mb-0 ml-auto max-w-7xl
 xl:px-5 lg:flex-row"
@@ -24,7 +32,7 @@ xl:px-5 lg:flex-row"
 relative z-10"
                                 >
                                     <p className="w-full text-4xl font-medium text-center leading-snug font-serif">
-                                        Admin Sign In
+                                        Student Sign In
                                     </p>
                                     <div className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
                                         <div className="relative">
@@ -168,8 +176,7 @@ fill-current"
                                 </svg>
                                 <svg
                                     viewBox="0 0 91 91"
-                                    className="absolute bottom-0 right-0 z-0 w-32 h-32 -mb-12 -mr-12 text-indigo-500
-fill-current"
+                                    className="absolute bottom-0 right-0 z-0 w-32 h-32 -mb-12 -mr-12 text-indigo-500 fill-current"
                                 >
                                     <g stroke="none" strokewidth={1} fillrule="evenodd">
                                         <g fillrule="nonzero">

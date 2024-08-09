@@ -10,7 +10,7 @@ const AdminSignin = () => {
     return (
         <>
             <div>
-                <div className="bg-white relative lg:py-20">
+                <div className="bg-white relative">
                     <div
                         className="flex flex-col items-center justify-between pt-0 pr-10 pb-0 pl-10 mt-0 mr-auto mb-0 ml-auto max-w-7xl
 xl:px-5 lg:flex-row"
@@ -74,7 +74,7 @@ xl:px-5 lg:flex-row"
                                                     className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-indigo-500
             rounded-lg transition duration-200 hover:bg-indigo-600 ease"
                                                 >
-                                                    Submit
+                                                    Submitz
                                                 </a>
                                             </button>
                                         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import Navbar from '../assets/navbar'
+import Router from 'react-router-dom'
 const Home = () => {
   return (
     <>
