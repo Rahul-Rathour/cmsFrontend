@@ -1,29 +1,109 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import {
+    FaTh,
+    FaBars,
+    FaCalendarCheck,
+    FaThList,
+    FaClipboard,
+    FaUserGraduate,
+    FaPen,
+    FaPenSquare,
+    FaDesktop,
+    FaChalkboardTeacher,
+    FaCheck,
+    FaBook
+}from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 
-const Sidebar = () => {
-  const [toggle, setToggle] = useState('false');
+import { NavLink } from 'react-router-dom';
 
-  const rotate = () => {
-    setToggle(!toggle)
-  }
-  return (
-    <>
 
-      <div style={{ width: toggle ? '100px' : '220px'}} className='fixed h-screen bg-gray-800 text-white'>
-          <div style={{ rotate: toggle ? '180deg' : '0deg' }} className='text-right cursor-pointer w-full' onClick={rotate} >◀</div>
-          <div style={{ width: toggle ? '90px' : '210px'}} className='text-center flex-col text-wrap'>
-          <div className='p-3 cursor-pointer border flex text-wrap'><h1>Assignments</h1></div>
-          <div className='p-3 cursor-pointer border'><h1>Exams</h1></div>
-          <div className='p-3 cursor-pointer border'><h1>Performance</h1></div>
-          <div className='p-3 cursor-pointer border'><h1>Attendance</h1></div>
-          <div className='p-3 cursor-pointer border'><h1>Library</h1></div>
-          <div className='p-3 cursor-pointer border'><h1>Announcements</h1></div>
-          <div className='p-3 cursor-pointer border'><h1>Events & Profile</h1></div>
-          </div>
-      </div>
+const Sidebar = ({children}) => {
+    const[isOpen ,setIsOpen] = useState(true);
+    const toggle = () => setIsOpen (!isOpen);
+    const menuItem=[
+        {
+            path:"/Dashboard",
+            name:"Dashboard",
+            icon:<FaTh/>
+        },
+        {
+            path:"/Classes",
+            name:"Classes",
+            icon:<FaClipboard/>
+        },
+        {
+            path:"/Students",
+            name:"Students",
+            icon:<FaUserGraduate/>
+        },
+        {
+            path:"/Teachers",
+            name:"Teachers",
+            icon:<FaChalkboardTeacher/>
+        },
+        {
+            path:"/Assignment",
+            name:"Assignments",
+            icon:<FaPen/>
+        },
+        {
+            path:"/Exam",
+            name:"Exams",
+            icon:<FaPenSquare/>
+        },
+        {
+            path:"/Performance",
+            name:"Performances",
+            icon:<FaDesktop/>
+        },
+        // {
+        //     path:"/Attendence",
+        //     name:"Attendence",
+        //     icon:<FaCheck/>
+        // },
+        // {
+        //     path:"/Library",
+        //     name:"Library",
+        //     icon:<FaBook/>
+        // },
+        // {
+        //     path:"/Announcement",
+        //     name:"Announcements",
+        //     icon:<FaMessage/>
+        // },
+        {
+            path:"/EventCalender",
+            name:"Events and Calender",
+            icon:<FaCalendarCheck/>
+        },
+        {
+            path:"/SettingsProfile",
+            name:"Settings and Profile",
+            icon:<FaThList/>
+        },
+    ]
+    return (
+        <div className="container w-1/4">
+           <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+               <div className="top_section">
+                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Admin</h1>
+                   <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
+                       <FaBars onClick={toggle}/>
+                   </div>
+               </div>
+               {
+                   menuItem.map((item, index)=>(
+                       <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                           <div className="icon">{item.icon}</div>
+                           <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+                       </NavLink>
+                   ))
+               }
+           </div>
+           <main>{children}</main>
+        </div>
+    );
+};
 
-    </>
-  )
-}
-
-export default Sidebar
+export default Sidebar;
