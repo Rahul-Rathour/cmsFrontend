@@ -16,7 +16,7 @@ import Teachers from './pages/Admin/Teachers';
 import EventCalender from './pages/Admin/EventCalender';
 import './calender.css';
 import SettingsProfile from './pages/Admin/SettingsProfile';
-
+import AdminLibrary from './pages/Admin/Library';
 
 
 
@@ -36,6 +36,7 @@ import TeacherAttendence from './pages/Teachers/TeacherAttendence';
 import TeacherAssignment from './pages/Teachers/TeacherAssignment';
 import TeacherProfile from './pages/Teachers/TeacherProfile';
 import TeacherLibrary from './pages/Teachers/TeacherLibrary';
+import TeacherEventCalender from './pages/Teachers/TeacherEvents';
 function App() {
   return (
     <div className="App">
@@ -49,8 +50,9 @@ function App() {
           <Route path="/admin/students" element={<Students/>}/>
           <Route path="/admin/classes" element={<Classes/>}/>
           <Route path="/admin/teachers" element={<Teachers/>}/>
-          <Route path="/admin/eventcalender" element={<EventCalender/>}/>
+          <Route path="/admin/event" element={<EventCalender/>}/>
           <Route path="/admin/profile" element={<SettingsProfile/>}/>
+          <Route path="/admin/library" element={<AdminLibrary/>}/>
 
 
 
@@ -61,6 +63,7 @@ function App() {
           <Route path="/teacher/assignment" element={<TeacherAssignment/>}/>
           <Route path="/teacher/profile" element={<TeacherProfile/>}/>
           <Route path="/teacher/library" element={<TeacherLibrary/>}/>
+          <Route path="/teacher/event" element={<TeacherEventCalender/>}/>
 
 
 
@@ -79,6 +82,7 @@ function App() {
           <Route path="/student/profile" element={<StudentProfile/>}/>
           <Route path="/student/library" element={<StudentLibrary/>}/>
           <Route path="/student/exam" element={<Exam/>}/>
+          
 
 
 

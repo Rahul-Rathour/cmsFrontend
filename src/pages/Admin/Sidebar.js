@@ -23,22 +23,22 @@ const Sidebar = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/Dashboard",
+            path:"/admin/dashboard",
             name:"Dashboard",
             icon:<FaTh/>
         },
         {
-            path:"/Classes",
+            path:"/admin/classes",
             name:"Classes",
             icon:<FaClipboard/>
         },
         {
-            path:"/Students",
+            path:"/admin/students",
             name:"Students",
             icon:<FaUserGraduate/>
         },
         {
-            path:"/Teachers",
+            path:"/admin/teachers",
             name:"Teachers",
             icon:<FaChalkboardTeacher/>
         },
@@ -62,23 +62,23 @@ const Sidebar = ({children}) => {
         //     name:"Attendence",
         //     icon:<FaCheck/>
         // },
-        // {
-        //     path:"/Library",
-        //     name:"Library",
-        //     icon:<FaBook/>
-        // },
         {
-            path:"/Announcement",
+            path:"/admin/library",
+            name:"Library",
+            icon:<FaBook/>
+        },
+        {
+            path:"/admin/announcement",
             name:"Announcements",
             icon:<FaMessage/>
         },
         {
-            path:"/EventCalender",
+            path:"/admin/event",
             name:"Events and Calender",
             icon:<FaCalendarCheck/>
         },
         {
-            path:"/SettingsProfile",
+            path:"/admin/profile",
             name:"Settings and Profile",
             icon:<FaThList/>
         },
