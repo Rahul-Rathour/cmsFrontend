@@ -31,7 +31,7 @@ xl:px-5 lg:flex-row"
       relative z-10"
                                 >
                                     <p className="w-full text-4xl font-medium text-center leading-snug font-serif">
-                                        Admin Registeration
+                                        Admin Registration
                                     </p>
                                     <div className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
                                         <div className="relative">

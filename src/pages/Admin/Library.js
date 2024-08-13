@@ -7,8 +7,8 @@ const AdminLibrary = () => {
             <Sidebar/>
             <div>
                 <div>
-                    <h1 className="text-xl font-semibold text-gray-900 dark:text-white mt-4">LIBRARY MANAGEMENT</h1>
-                    <h2 className="text-m font-medium text-gray-900 dark:text-white mt-4">Add New Book</h2>
+                    <h1 className="text-xl font-semibold text-gray-900 dark:text-black mt-4">LIBRARY MANAGEMENT</h1>
+                    <h2 className="text-m font-medium text-gray-900 dark:text-black mt-4">Add New Book</h2>
 
                     <h2 className="  text-gray-900 dark:text-white mt-4">Title:</h2>
 

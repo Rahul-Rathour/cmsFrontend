@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const StudentSignin = () => {
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
     const[isopen,setIsopen] = useState('true')
+    const navigate = useNavigate(); 
 
     const handleRegister = () =>{
         setIsopen(!isopen);
         console.log(isopen);
-    }
+        navigate('/student/dashboard');
+    };
     return (
         <>
             <div>

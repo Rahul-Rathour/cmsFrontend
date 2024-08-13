@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const AdminSignin = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const[isopen,setIsopen] = useState('true')
+
+    const navigate = useNavigate(); 
 
     const handleRegister = () => {
         console.log("signin successfully");
+        navigate('/admin/dashboard');
+
     }
     return (
         <>
