@@ -10,7 +10,39 @@ import { BsPersonWorkspace, BsPeopleFill }
 import { GiTeacher } from "react-icons/gi";
 
 
-const Dashboard = () => {
+const AdminDashboard = () => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [events, setEvents] = useState([]);
+  const [announcements, setAnnouncements] = useState([]);
+  const [studentPerformance, setStudentPerformance] = useState([]);
+
+  useEffect(() => {
+    fetchEvents();
+    fetchAnnouncements();
+    
+  }, []);
+
+  const fetchEvents = async()=>{
+    try {
+      const response = await axios.get('http://localhost:4000/api/vi/events/getall');
+      setEvents(response.data.events ||[]);
+    } 
+    catch (error) {
+      console.error('Error fetching events:', error);
+    }
+  };
+
+  const fetchAnnouncements = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/vi/announcements/getall');
+      setAnnouncements(response.data.announcements || []);
+    } catch (error) {
+      console.error('Error fetching announcements:', error);
+    }
+  };
+
+
+
   return (
     <>
       <div className='flex'>
@@ -50,4 +82,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default AdminDashboard
