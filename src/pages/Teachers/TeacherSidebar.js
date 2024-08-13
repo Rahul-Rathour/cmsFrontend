@@ -18,67 +18,58 @@ import { FaMessage } from "react-icons/fa6";
 import { NavLink } from 'react-router-dom';
 
 
-const Sidebar = ({children}) => {
+const TeacherSidebar = ({children}) => {
     const[isOpen ,setIsOpen] = useState(true);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/Dashboard",
+            path:"/teacher/TeacherDashboard",
             name:"Dashboard",
             icon:<FaTh/>
         },
+        // {
+        //     path:"/Classes",
+        //     name:"Classes",
+        //     icon:<FaClipboard/>
+        // },
+       
         {
-            path:"/Classes",
-            name:"Classes",
-            icon:<FaClipboard/>
+            path:"/student/Assignments",
+            name:"Assignments",
+            icon:<FaPen/>
         },
         {
-            path:"/Students",
-            name:"Students",
-            icon:<FaUserGraduate/>
+            path:"/student/Exam",
+            name:"Exams",
+            icon:<FaPenSquare/>
         },
         {
-            path:"/Teachers",
-            name:"Teachers",
-            icon:<FaChalkboardTeacher/>
+            path:"/student/Performance",
+            name:"Performances",
+            icon:<FaDesktop/>
         },
-        // {
-        //     path:"/Assignment",
-        //     name:"Assignments",
-        //     icon:<FaPen/>
-        // },
-        // {
-        //     path:"/Exam",
-        //     name:"Exams",
-        //     icon:<FaPenSquare/>
-        // },
-        // {
-        //     path:"/Performance",
-        //     name:"Performances",
-        //     icon:<FaDesktop/>
-        // },
-        // {
-        //     path:"/Attendence",
-        //     name:"Attendence",
-        //     icon:<FaCheck/>
-        // },
-        // {
-        //     path:"/Library",
-        //     name:"Library",
-        //     icon:<FaBook/>
-        // },
         {
-            path:"/Announcement",
+            path:"/student/Attendence",
+            name:"Attendence",
+            icon:<FaCheck/>
+        },
+        {
+            path:"/student/StudentLibrary",
+            name:"Library",
+            icon:<FaBook/>
+        },
+        {
+            path:"/student/StudentAnnouncement",
             name:"Announcements",
             icon:<FaMessage/>
         },
+        // {
+        //     path:"/EventCalender",
+        //     name:"Events and Calender",
+        //     icon:<FaCalendarCheck/>
+        // },
         {
-            path:"/EventCalender",
-            name:"Events and Calender",
-            icon:<FaCalendarCheck/>
-        },
-        {
-            path:"/SettingsProfile",
+            path:"/student/StudentProfile",
             name:"Settings and Profile",
             icon:<FaThList/>
         },
@@ -87,7 +78,7 @@ const Sidebar = ({children}) => {
         <div className="container w-1/4">
            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
                <div className="top_section">
-                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Admin</h1>
+                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Student</h1>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                    </div>
@@ -106,4 +97,4 @@ const Sidebar = ({children}) => {
     );
 };
 
-export default Sidebar;
+export default TeacherSidebar;

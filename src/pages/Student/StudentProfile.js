@@ -1,11 +1,11 @@
 import React from 'react'
-import Sidebar from "./Sidebar"
+import StudentSidebar from './StudentSidebar'
 
-const SettingsProfile = () => {
+const StudentProfile = () => {
   return (
     <>
 <div className='flex'>
-            <Sidebar />
+            <StudentSidebar />
             <div>
                 <div>
                     <h1 className="text-xl font-semibold text-gray-900 dark:text-white mt-4">EDIT PROFILE</h1>
@@ -41,4 +41,4 @@ const SettingsProfile = () => {
   )
 }
 
-export default SettingsProfile
+export default StudentProfile

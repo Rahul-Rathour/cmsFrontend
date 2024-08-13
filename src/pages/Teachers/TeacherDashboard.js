@@ -1,46 +1,42 @@
-
-import React, { useState, useEffect } from 'react';
-import Sidebar from './Sidebar'
-import Announcement from './Announcement';
-import EventCalender from './EventCalender';
+import React from 'react'
+// import EventCalender from './EventCalender';
+import TeacherSidebar from './TeacherSidebar';
 import axios from 'axios';
 import { BsPersonWorkspace, BsPeopleFill }
   from 'react-icons/bs'
 import { GiTeacher } from "react-icons/gi";
-
-
-const Dashboard = () => {
+const TeacherDashboard = () => {
   return (
     <>
-      <div className='flex'>
-        <Sidebar />
+    <div className='flex'>
+        <TeacherSidebar/>
         
         <div className='main-container'>
           <div className='main-title'>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-white'> DASHBOARD</h3>
+            <h3 className='text-xl font-semibold text-gray-900 dark:text-white'> STUDENT DASHBOARD</h3>
           </div>
 
           <div className='main-cards'>
             <div className='card'>
               <div className='card-inner'>
-                <h3>Total Students</h3>
+                <h3>Assignment</h3>
                 <BsPeopleFill className='card_icon' />
               </div>
-              <h1>300</h1>
+              <h1>5</h1>
             </div>
             <div className='card'>
               <div className='card-inner'>
-                <h3>Total Faculties</h3>
+                <h3>Performance</h3>
                 <BsPersonWorkspace className='card_icon' />
               </div>
               <h1>30</h1>
             </div>
             <div className='card'>
               <div className='card-inner'>
-                <h3>Total Classes</h3>
+                <h3>Terms</h3>
                 <GiTeacher className='card_icon' />
               </div>
-              <h1>20</h1>
+              <h1>1</h1>
               
             </div>
 
@@ -48,9 +44,8 @@ const Dashboard = () => {
           
         </div>
       </div>
-      
     </>
   )
 }
 
-export default Dashboard
+export default TeacherDashboard
