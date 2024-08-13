@@ -13,7 +13,7 @@ const TeacherDashboard = () => {
         
         <div className='main-container'>
           <div className='main-title'>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-white'> STUDENT DASHBOARD</h3>
+            <h3 className='text-xl font-semibold text-gray-900 dark:text-white'> TEACHER DASHBOARD</h3>
           </div>
 
           <div className='main-cards'>

@@ -23,7 +23,7 @@ const StudentSidebar = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/student/StudentDashboard",
+            path:"/student/dashboard",
             name:"Dashboard",
             icon:<FaTh/>
         },
@@ -34,32 +34,28 @@ const StudentSidebar = ({children}) => {
         // },
        
         {
-            path:"/student/Assignments",
+            path:"/student/assignment",
             name:"Assignments",
             icon:<FaPen/>
         },
         {
-            path:"/student/Exam",
+            path:"/student/exam",
             name:"Exams",
             icon:<FaPenSquare/>
         },
+        
         {
-            path:"/student/Performance",
-            name:"Performances",
-            icon:<FaDesktop/>
-        },
-        {
-            path:"/student/Attendence",
+            path:"/student/attendence",
             name:"Attendence",
             icon:<FaCheck/>
         },
         {
-            path:"/student/StudentLibrary",
+            path:"/student/library",
             name:"Library",
             icon:<FaBook/>
         },
         {
-            path:"/student/StudentAnnouncement",
+            path:"/student/announcement",
             name:"Announcements",
             icon:<FaMessage/>
         },
@@ -69,7 +65,7 @@ const StudentSidebar = ({children}) => {
         //     icon:<FaCalendarCheck/>
         // },
         {
-            path:"/student/StudentProfile",
+            path:"/student/profile",
             name:"Settings and Profile",
             icon:<FaThList/>
         },

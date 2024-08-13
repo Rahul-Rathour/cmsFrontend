@@ -23,53 +23,46 @@ const TeacherSidebar = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/teacher/TeacherDashboard",
+            path:"/teacher/dashboard",
             name:"Dashboard",
             icon:<FaTh/>
         },
-        // {
-        //     path:"/Classes",
-        //     name:"Classes",
-        //     icon:<FaClipboard/>
-        // },
+       
        
         {
-            path:"/student/Assignments",
+            path:"/teacher/assignment",
             name:"Assignments",
             icon:<FaPen/>
         },
         {
-            path:"/student/Exam",
+            path:"/teacher/exam",
             name:"Exams",
             icon:<FaPenSquare/>
         },
+       
         {
-            path:"/student/Performance",
-            name:"Performances",
-            icon:<FaDesktop/>
-        },
-        {
-            path:"/student/Attendence",
+            path:"/teacher/attendence",
             name:"Attendence",
             icon:<FaCheck/>
         },
-        {
-            path:"/student/StudentLibrary",
-            name:"Library",
-            icon:<FaBook/>
-        },
-        {
-            path:"/student/StudentAnnouncement",
+        
+     {
+            path:"/teacher/announcement",
             name:"Announcements",
             icon:<FaMessage/>
         },
-        // {
-        //     path:"/EventCalender",
-        //     name:"Events and Calender",
-        //     icon:<FaCalendarCheck/>
-        // },
         {
-            path:"/student/StudentProfile",
+            path:"/teacher/event",
+            name:"Events and Calender",
+            icon:<FaCalendarCheck/>
+        },
+        {
+            path:"/teacher/library",
+            name:"Library",
+            icon:<FaCalendarCheck/>
+        },
+        {
+            path:"/teacher/profile",
             name:"Settings and Profile",
             icon:<FaThList/>
         },
@@ -78,7 +71,7 @@ const TeacherSidebar = ({children}) => {
         <div className="container w-1/4">
            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
                <div className="top_section">
-                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Student</h1>
+                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Teacher</h1>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                    </div>
