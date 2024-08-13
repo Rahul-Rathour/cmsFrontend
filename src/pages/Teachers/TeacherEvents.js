@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
 import Calendar from 'react-calendar';
-import Sidebar from './Sidebar'
-const EventCalender = () => {
+import TeacherSidebar from './TeacherSidebar';
+const TeacherEventCalender = () => {
   return (
     <>
       <div className='flex'>
-        <Sidebar />
+        <TeacherSidebar />
 
         <div>
           <div>
@@ -24,4 +24,4 @@ const EventCalender = () => {
     </>
   )
 }
-export default EventCalender
+export default TeacherEventCalender

@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar'
-import Performance from './Performance';
 import Announcement from './Announcement';
 import EventCalender from './EventCalender';
 import axios from 'axios';
@@ -47,6 +46,7 @@ const AdminDashboard = () => {
     <>
       <div className='flex'>
         <Sidebar />
+        
         <div className='main-container'>
           <div className='main-title'>
             <h3 className='text-xl font-semibold text-gray-900 dark:text-white'> DASHBOARD</h3>
@@ -73,11 +73,14 @@ const AdminDashboard = () => {
                 <GiTeacher className='card_icon' />
               </div>
               <h1>20</h1>
+              
             </div>
 
           </div>
+          
         </div>
       </div>
+      
     </>
   )
 }

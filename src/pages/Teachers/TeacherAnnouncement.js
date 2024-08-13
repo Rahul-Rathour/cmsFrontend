@@ -1,10 +1,12 @@
 import React from 'react'
-import Sidebar from './Sidebar'
-const Announcement = () => {
+import TeacherSidebar from './TeacherSidebar'
+
+const TeacherAnnouncement = () => {
   return (
+    
     <>
     <div className='flex'>
-        <Sidebar/>
+        <TeacherSidebar/>
         <div>
             <div>
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white mt-4">ADD ANNOUNCEMENT</h1>
@@ -21,7 +23,8 @@ focus:invalid:border-pink-500 focus:invalid:ring-pink-500 pr-64' ></textarea></s
             </div>
         </div>
     </div>
-</>
-)
+    </>
+  )
 }
-export default Announcement
+
+export default TeacherAnnouncement
