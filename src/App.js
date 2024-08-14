@@ -1,4 +1,4 @@
-// harshita commit
+// harshita 8:36
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
@@ -7,6 +7,7 @@ import ChooseUser from './components/ChooseUser';
 import Sidebar from './pages/Admin/Sidebar';
 import Attendence from './pages/Admin/Attendence';
 import Announcement from './pages/Admin/Announcement';
+import AdminDashboard from './pages/Admin/Dashboard'
 import './dash.css';
 import Students from './pages/Admin/Students';
 import Classes from './pages/Admin/Classes';
@@ -42,7 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/admin/choose" element={<ChooseUser/>}/>
-          <Route path="/admin/dashboard" element={<Dashboard/>}/>
+          <Route path="/admin/dashboard" element={<AdminDashboard/>}/> 
           <Route path="/admin/sidebar" element={<Sidebar/>}/>
           <Route path="/admin/announcement" element={<Announcement/>}/>
           <Route path="/admin/students" element={<Students/>}/>
@@ -62,8 +63,6 @@ function App() {
           <Route path="/teacher/profile" element={<TeacherProfile/>}/>
           <Route path="/teacher/library" element={<TeacherLibrary/>}/>
           <Route path="/teacher/event" element={<TeacherEventCalender/>}/>
-
-
 
 
 
