@@ -5,7 +5,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handleGetStartedClick = () => {
-        navigate("/component/choose"); 
+        navigate("/component/chooseuser"); 
     };
 
     return (
