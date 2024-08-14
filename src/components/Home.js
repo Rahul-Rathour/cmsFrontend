@@ -20,7 +20,7 @@ const Home = () => {
           can enhance organizational efficiency, improve engagement, and provide a seamless educational experience that meets the demands of today's fast-paced academic environment.
         </p>
         <div class="w-max">
-          <h1 class="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-5xl text-white font-bold">Hello World</h1>
+          <h1 class="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-5xl text-white font-bold">Get started</h1>
         </div>
       </div>
     </>

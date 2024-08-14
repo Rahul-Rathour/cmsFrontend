@@ -1,4 +1,4 @@
-// harshita 8:36
+// harshita 9:20
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
@@ -38,6 +38,7 @@ import TeacherAssignment from './pages/Teachers/TeacherAssignment';
 import TeacherProfile from './pages/Teachers/TeacherProfile';
 import TeacherLibrary from './pages/Teachers/TeacherLibrary';
 import TeacherEventCalender from './pages/Teachers/TeacherEvents';
+
 function App() {
   return (
     <div className="App">
@@ -69,12 +70,10 @@ function App() {
 
 
 
-          <Route path="/compnent/chooseuser" element={<ChooseUser/>}/>
-
-
-
-
-
+          <Route path="/component/chooseuser" element={<ChooseUser/>}/>
+          <Route path="/admin/signin" element={<AdminSignin/>}/>
+          <Route path="/teacher/signin" element={<TeacherSignin/>}/>
+          <Route path="/student/signin" element={<StudentSignin/>}/>
 
 
 
