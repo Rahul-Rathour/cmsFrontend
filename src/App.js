@@ -16,8 +16,10 @@ import EventCalender from './pages/Admin/EventCalender';
 import './calender.css';
 import SettingsProfile from './pages/Admin/SettingsProfile';
 import AdminLibrary from './pages/Admin/Library';
-
-
+import AdminSignin from './components/AdminSignin';
+import AdminRegister from './components/AdminRegister'
+import StudentSignin from './components/StudentSignin';
+import TeacherSignin from './components/TeacherSignin'
 
 import StudentDashboard from './pages/Student/StudentDashboard';
 import StudentSidebar from './pages/Student/StudentSidebar';
