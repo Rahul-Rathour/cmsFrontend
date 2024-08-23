@@ -1,107 +1,36 @@
-import React from 'react'
-import StudentSidebar from './StudentSidebar'
+// frontend/src/components/Student/ViewAssignments.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Assignments = () => {
+  const [assignments, setAssignments] = useState([]);
+
+  useEffect(() => {
+    const fetchAssignments = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/student/assignments');
+        setAssignments(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchAssignments();
+  }, []);
+
   return (
-    <>
-      <div className='flex'>
-        <StudentSidebar />
+    <div className="p-6">
+      <h2 className="text-2xl font-bold mb-4">Assignments</h2>
+      <ul className="space-y-4">
+        {assignments.map((assignment) => (
+          <li key={assignment._id} className="p-4 border rounded shadow">
+            <h3 className="text-xl font-semibold">{assignment.title}</h3>
+            <p>{assignment.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-        <div className=''>
-          <div className=''>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-white'> ASSIGNMENT</h3>
-          </div>
-
-          <div className=''>
-            <div className=''>
-              <div className=''>
-                <div className=''>
-                  <h3>TITLE</h3>
-                </div>
-                <h1></h1>
-              </div>
-              <div className=''>
-                <div className=''>
-                  <h3>WEB TECHNOLOGY</h3>
-                </div>
-                <h1></h1>
-              </div>
-
-
-            </div>
-
-          </div>
-          <div className=''>
-            <div className=''>
-
-
-
-
-              <div className=''>
-                <div className=''>
-                  <h3>DESCRIPTION</h3>
-                </div>
-                <h1></h1>
-              </div>
-              <div className=''>
-                <div className=''>
-                  <h3>DESCRIBE ABOUT WEBSITES AND STANDARDS</h3>
-                </div>
-                <h1></h1>
-              </div>
-
-
-            </div>
-
-          </div>
-          <div className=''>
-            <div className=''>
-              <div className=''>
-                <div className=''>
-                  <h3>BRANCH</h3>
-                </div>
-                <h1></h1>
-              </div>
-              <div className=''>
-                <div className=''>
-                  <h3>DEADLINE</h3>
-                </div>
-                <h1></h1>
-              </div>
-
-
-            </div>
-
-          </div>
-          <div className=''>
-            <div className=''>
-
-
-
-
-              <div className=''>
-                <div className=''>
-                  <h3>TITLE</h3>
-                </div>
-                <h1></h1>
-              </div>
-              <div className=''>
-                <div className=''>
-                  <h3>WEB TECHNOLOGY</h3>
-                </div>
-                <h1></h1>
-              </div>
-
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
-    </>
-  )
-}
-
-export default Assignments
+export default Assignments;

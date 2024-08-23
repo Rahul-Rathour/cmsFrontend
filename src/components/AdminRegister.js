@@ -1,60 +1,81 @@
-import React, { useState } from 'react'
-
+import React, { useState } from 'react';
+// import { AdminRegisterContainer, FormContainer, InputField, SubmitButton } from '../styles/AdminRegisterStyles';
+import axios from 'axios'; // Import axios
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 const AdminRegister = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [name,setName] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('')
 
-    const handleRegister = () => {
-        console.log(name +" registerd");
-    }
+    const handleRegister = async () => {
+        console.log(name)
+
+        try {
+            const response = await axios.post('http://localhost:4000/api/vi/register/admin', { email, password });
+            if (response.status === 200) {
+                // Registration successful, redirect to admin login
+                window.location.href = '/admin-signIn';
+            } else {
+                // Handle registration errors
+                console.error('Registration failed');
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+        }
+    };
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+
     return (
         <>
+
             <div>
                 <div className="bg-white relative">
                     <div
                         className="flex flex-col items-center justify-between pt-0 pr-10 pb-0 pl-10 mt-0 mr-auto mb-0 ml-auto max-w-7xl xl:px-5 lg:flex-row">
                         <div className="flex flex-col items-center w-full pt-5 pr-10 pb-20 pl-10 lg:pt-20 lg:flex-row">
                             <div className="w-full bg-cover relative max-w-md lg:max-w-2xl lg:w-7/12">
-                                <div className="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
+                                <div data-aos='fade-right' data-aos-duration='1000' className="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
                                     <img
-                                        src="https://res.cloudinary.com/macxenon/image/upload/v1631570592/Run_-_Health_qcghbu.png"
-                                        className="btn-"
-                                    />
+                                        src="https://res.cloudinary.com/macxenon/image/upload/v1631570592/Run_-_Health_qcghbu.png" className="btn-" />
                                 </div>
                             </div>
                             <div className="w-full mt-20 mr-0 mb-0 ml-0 relative z-10 max-w-2xl lg:mt-0 lg:w-5/12">
                                 <div
                                     className="flex flex-col items-start justify-start pt-10 pr-10 pb-10 pl-10 bg-white shadow-2xl rounded-xl relative z-10">
                                     <p className="w-full text-4xl font-medium text-center leading-snug font-serif">
-                                        Admin Registration
+                                        Admin Register
                                     </p>
                                     <div className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
-                                        <div className="relative">
-                                            <p
-                                                className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">
-                                                Name
-                                            </p>
-                                            <input
-                                                
-                                                placeholder="John"
-                                                type="text"
-                                                value={name}
-                                                onChange={(e) => setName(e.target.value)}
-                                                required
-                                                className="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md"/>
-                                        </div>
                                         <div className="relative">
                                             <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">
                                                 Email
                                             </p>
-                                            <input   
+                                            <input
+
                                                 placeholder="123@ex.com"
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 required
-                                                className="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md"/>
+                                                className="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md" />
+                                        </div>
+                                        <div className="relative">
+                                            <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">
+                                                Name
+                                            </p>
+                                            <input
+
+                                                placeholder="123@ex.com"
+                                                type="text"
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
+                                                required
+                                                className="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md" />
                                         </div>
                                         <div className="relative">
                                             <p
@@ -62,13 +83,12 @@ const AdminRegister = () => {
                                                 Password
                                             </p>
                                             <input
-                                                
                                                 placeholder="Password"
                                                 type="password"
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
                                                 required
-                                                className="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md"/>
+                                                className="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md" />
                                         </div>
                                         <div className="relative">
                                             <button onClick={handleRegister}>
@@ -269,7 +289,7 @@ const AdminRegister = () => {
 
             </div>
         </>
-    )
-}
+    );
+};
 
-export default AdminRegister
+export default AdminRegister;

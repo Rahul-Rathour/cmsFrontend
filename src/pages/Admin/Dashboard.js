@@ -1,12 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
-import Sidebar from './Sidebar'
+// import Sidebar from './Sidebar'
 import Announcement from './Announcement';
 import EventCalender from './EventCalender';
 import axios from 'axios';
 import { BsPersonWorkspace, BsPeopleFill }
   from 'react-icons/bs'
 import { GiTeacher } from "react-icons/gi";
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../../assets/navbar';
 
 
 const AdminDashboard = () => {
@@ -39,12 +41,26 @@ const AdminDashboard = () => {
       console.error('Error fetching announcements:', error);
     }
   };
-
+const navigate = useNavigate();
 
 
   return (
     <>
-      <div className='flex'>
+    <Navbar/>
+    <div className="p-6 bg-blue-50 mt-16">
+      <h1 className="text-2xl font-bold text-blue-600">Admin Dashboard</h1>
+      <div className="grid grid-cols-3 gap-4 mt-6">
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/students')}>Add Student</div>
+        {/* <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/classes')}>Add Class</div> */}
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/addteacher')}>Add Teacher</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/addcourse')}>Add Course</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/announcement')}>Announcements</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/exam')}>Exams</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/profile')}>Profile</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/setting')}>Settings</div>
+      </div>
+    </div>
+      {/* <div className='flex'>
         <Sidebar />
         
         <div className='main-container'>
@@ -79,7 +95,7 @@ const AdminDashboard = () => {
           </div>
           
         </div>
-      </div>
+      </div> */}
       
     </>
   )

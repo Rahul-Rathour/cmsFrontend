@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from './Sidebar'
+// import Sidebar from './Sidebar'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -51,7 +51,7 @@ const Classes = () => {
     <>
       <div className='flex'>
         <div className='fixed'>
-        <Sidebar />
+        {/* <Sidebar /> */}
         </div>
         <div className='ml-80'>
           <div>

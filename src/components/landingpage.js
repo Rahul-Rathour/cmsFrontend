@@ -2,8 +2,7 @@ import React from 'react'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
-// import Navbar from './Shared/Navbar';
-import Card from './cards';
+import Card from './card';
 import Navbar from '../assets/navbar';
 
 const Landingpage = () => {
@@ -20,11 +19,11 @@ const Landingpage = () => {
                     <h1 className='text-6xl text-center text-blue-900 font-bold'>College Management<br /> <div className='text-center '>System</div></h1>
                     <p className='text-center text-2xl pt-3'>Where efficiency meets education</p>
                     <div className='text-center'>
-                        <button className='bg-blue-800 text-white p-3 m-5 border rounded-lg hover:bg-blue-800'>GET STARTED</button>
+                        <button className='bg-blue-900 text-white p-3 m-5 border rounded-lg hover:bg-blue-800'>GET STARTED</button>
                     </div>
                 </div>
             </div>
-            <Card/>
+            <Card />
         </>
     )
 }
