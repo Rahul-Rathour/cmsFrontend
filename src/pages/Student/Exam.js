@@ -4,15 +4,16 @@ import axios from 'axios';
 
 const Exam = () => {
   const [exams, setExams] = useState([]);
+  const course = localStorage.getItem("Course")
 
   useEffect(() => {
     const fetchExams = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/student/exams');
+        const response = await axios.get(`http://localhost:5000/api/student/exams?course=${course}`);
         setExams(response.data);
-      } catch (error) {
+    }catch (error) {    
         console.error(error);
-      } 
+      }
     };
 
     fetchExams();

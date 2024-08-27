@@ -12,16 +12,20 @@ function StudentProfile() {
   useEffect(() => {
     fetchProfile();
   }, []);
-
+const studentName = localStorage.getItem("name")
+const RegistrationNumber = localStorage.getItem("Registration Number")
+const Course = localStorage.getItem("Course")
+const Branch = localStorage.getItem("Branch")
+const Email = localStorage.getItem("Email")
   return (
     <div className="p-6">
       <h2 className="text-2xl mb-6">Profile</h2>
       <div className="border p-4 rounded">
-        <p>Name: {profile.studentName}</p>
-        <p>Registration Number: {profile.registrationNumber}</p>
-        <p>Course: {profile.course}</p>
-        <p>Branch: {profile.branch}</p>
-        <p>Email: {profile.email}</p>
+        <p>Name: {studentName}</p>
+        <p>Registration Number: {RegistrationNumber}</p>
+        <p>Course: {Course}</p>
+        <p>Branch: {Branch}</p>
+        <p>Email: {Email}</p>
       </div>
     </div>
   );

@@ -13,16 +13,19 @@ const AdminSignin = () => {
       e.preventDefault();
     
       try {
-        const response = await axios.post('http://localhost:4000/api/vi/users/signin', { email, password }); 
+        const response = await axios.post('http://localhost:5000/api/admin/login', { username:email, password }); 
+        console.log(response)
         if (response.status === 200) {
           // Sign-in successful, redirect to admin dashboard
+          
+          localStorage.setItem("token",response.data.token)
           window.location.href = '/admin/dashboard';
         } else {
           // Handle sign-in errors
-          console.error('Sign-in failed');
+          alert('Sign-in failed');
         }
       } catch (error) {
-        console.error('Error during sign-in:', error);
+        alert('Error during sign-in:', error);
       }
     };
      useEffect(() => {

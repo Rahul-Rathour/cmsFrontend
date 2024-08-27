@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import AOS from "aos";
@@ -9,12 +10,34 @@ const StudentSignin = () => {
     const[password,setPassword] = useState('')
     const[isopen,setIsopen] = useState('true')
     const navigate = useNavigate(); 
+    // 
 
-    const handleRegister = () =>{
-        setIsopen(!isopen);
-        console.log(isopen);
-        navigate('/student/dashboard');
-    };
+    const handleSignIn = async (e) => {
+        e.preventDefault();
+      
+        try {
+          const response = await axios.post('http://localhost:5000/api/student/login', { email:email, registrationNumber:password }); 
+          console.log(response)
+          if (response.status === 200) {
+            // Sign-in successful, redirect to admin dashboard
+            
+            localStorage.setItem("token",response.data.token)
+            localStorage.setItem("name",response.data.StudentDetail.name)
+            localStorage.setItem("Registration Number",response.data.StudentDetail.registrationNumber)
+            localStorage.setItem("Course",response.data.StudentDetail.course)
+            localStorage.setItem("Branch",response.data.StudentDetail.branch)
+            localStorage.setItem("Email",response.data.StudentDetail.email)
+
+            
+            navigate('/student/dashboard');
+          } else {
+            // Handle sign-in errors
+            alert('Sign-in failed');
+          }
+        } catch (error) {
+          alert('Error during sign-in:', error);
+        }
+      };
     useEffect(() => {
         AOS.init();
         AOS.refresh();
@@ -82,7 +105,7 @@ relative z-10"
                                             />
                                         </div>
                                         <div className="relative">
-                                            <button onClick={handleRegister}>
+                                            <button onClick={handleSignIn}>
                                                 <a
                                                     className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-indigo-500
     rounded-lg transition duration-200 hover:bg-indigo-600 ease"

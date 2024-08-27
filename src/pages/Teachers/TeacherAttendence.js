@@ -5,7 +5,7 @@ function TeacherAttendence() {
   const [attendance, setAttendance] = useState({});
 
   const fetchStudents = async () => {
-    const response = await fetch('/api/teacher/students');
+    const response = await fetch('http://localhost:5000/api/teacher/students'); 
     const data = await response.json();
     setStudents(data.students);
   };
@@ -16,7 +16,7 @@ function TeacherAttendence() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('/api/teacher/markAttendance', {
+    const response = await fetch('/api/teacher/mark-attendance', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,15 +45,15 @@ function TeacherAttendence() {
             <div>
               <input
                 type="radio"
-                name={student._id}
+                name={student.reregistrationNumber}
                 value="Present"
-                onChange={() => handleAttendanceChange(student._id, true)}
+                onChange={() => handleAttendanceChange(student.registrationNumber, true)}
               /> Present
               <input
                 type="radio"
                 name={student._id}
                 value="Absent"
-                onChange={() => handleAttendanceChange(student._id, false)}
+                onChange={() => handleAttendanceChange(student.registrationNumber, false)}
               /> Absent
             </div>
           </div>

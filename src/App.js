@@ -1,4 +1,4 @@
-// rahul 23/8/2024 09:14
+// rahul 27/8/2024 10:42
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
@@ -18,7 +18,6 @@ import './calender.css';
 import SettingsProfile from './pages/Admin/SettingsProfile';
 import AdminLibrary from './pages/Admin/Library';
 import AdminSignin from './components/AdminSignin';
-import AdminRegister from './components/AdminRegister'
 import StudentSignin from './components/StudentSignin';
 import TeacherSignin from './components/TeacherSignin'
 
@@ -53,7 +52,7 @@ function App() {
           <Route path="/admin/students" element={<Students/>}/>
           <Route path="/admin/addteacher" element={<Teachers/>}/>
           <Route path="/admin/addcourse" element={<AddCourse/>}/>
-          <Route path="/admin/register" element={<AdminRegister/>}/>
+         
           <Route path="/" element={<Landingpage/>}/>
           <Route path="/admin/choose" element={<ChooseUser/>}/>
           <Route path="/admin/dashboard" element={<AdminDashboard/>}/> 

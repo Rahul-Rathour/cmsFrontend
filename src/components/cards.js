@@ -7,12 +7,12 @@ const Card = () => {
   return (
     <>
      {/* Cards Section */}
-     <div className="flex justify-center space-x-8 ">
+     <div className="flex justify-evenly space-x-8 mt-1">
           {/* Admin Card */}
-          <Link to="/admin/signin" className="w-1/3" >
+          <Link to="/admin/signin" className="w-1/4" >
             <motion.div
-              className="p-6 bg-white rounded-lg shadow-lg h-52"
-              whileHover={{ scale: 1.1, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.2)' }}
+              className="p-6 bg-white border border-blue-100 rounded-lg shadow-lg h-48"
+              whileHover={{ scale: 1.1, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.5)' }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -24,10 +24,10 @@ const Card = () => {
           </Link>
 
           {/* Student Card */}
-          <Link to="/student/signin" className="w-1/3" >
+          <Link to="/student/signin" className="w-1/4" >
             <motion.div
-              className="p-6 bg-white rounded-lg shadow-lg h-52"
-              whileHover={{ scale: 1.1, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.2)' }}
+              className="p-6 bg-white border border-blue-100 rounded-lg shadow-lg h-48"
+              whileHover={{ scale: 1.1, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.5)' }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -39,10 +39,10 @@ const Card = () => {
           </Link>
 
           {/* Faculty Card */}
-          <Link to="/teacher/signin" className="w-1/3">
+          <Link to="/teacher/signin" className="w-1/4">
             <motion.div
-              className="p-6 bg-white rounded-lg shadow-lg h-52"
-              whileHover={{ scale: 1.1, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.2)' }}
+              className="p-6 bg-white border border-blue-100 rounded-lg shadow-lg h-48"
+              whileHover={{ scale: 1.1, boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.5)' }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
