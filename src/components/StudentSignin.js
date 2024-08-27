@@ -1,17 +1,47 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 
 const StudentSignin = () => {
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
     const[isopen,setIsopen] = useState('true')
     const navigate = useNavigate(); 
+    // 
 
-    const handleRegister = () =>{
-        setIsopen(!isopen);
-        console.log(isopen);
-        navigate('/student/dashboard');
-    };
+    const handleSignIn = async (e) => {
+        e.preventDefault();
+      
+        try {
+          const response = await axios.post('http://localhost:5000/api/student/login', { email:email, registrationNumber:password }); 
+          console.log(response)
+          if (response.status === 200) {
+            // Sign-in successful, redirect to admin dashboard
+            
+            localStorage.setItem("token",response.data.token)
+            localStorage.setItem("name",response.data.StudentDetail.name)
+            localStorage.setItem("Registration Number",response.data.StudentDetail.registrationNumber)
+            localStorage.setItem("Course",response.data.StudentDetail.course)
+            localStorage.setItem("Branch",response.data.StudentDetail.branch)
+            localStorage.setItem("Email",response.data.StudentDetail.email)
+
+            
+            navigate('/student/dashboard');
+          } else {
+            // Handle sign-in errors
+            alert('Sign-in failed');
+          }
+        } catch (error) {
+          alert('Error during sign-in:', error);
+        }
+      };
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
         <>
             <div>
@@ -22,12 +52,13 @@ xl:px-5 lg:flex-row"
                     >
                         <div className="flex flex-col items-center w-full pt-5 pr-10 pb-20 pl-10 lg:pt-20 lg:flex-row">
                             <div className="w-full bg-cover relative max-w-md lg:max-w-2xl lg:w-7/12">
-                                <div className="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
+                                {/* <div className="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
                                     <img
                                         src="https://res.cloudinary.com/macxenon/image/upload/v1631570592/Run_-_Health_qcghbu.png"
                                         className="btn-"
                                     />
-                                </div>
+                                </div> */}
+                                <div data-aos='fade-right' data-aos-duration='1000' className=' '><img src="https://res.cloudinary.com/macxenon/image/upload/v1631570592/Run_-_Health_qcghbu.png"/> </div>
                             </div>
                             <div className="w-full mt-20 mr-0 mb-0 ml-0 relative z-10 max-w-2xl lg:mt-0 lg:w-5/12">
                                 <div
@@ -74,7 +105,7 @@ relative z-10"
                                             />
                                         </div>
                                         <div className="relative">
-                                            <button onClick={handleRegister}>
+                                            <button onClick={handleSignIn}>
                                                 <a
                                                     className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-indigo-500
     rounded-lg transition duration-200 hover:bg-indigo-600 ease"

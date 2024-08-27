@@ -5,10 +5,12 @@ import axios from 'axios';
 import { BsPersonWorkspace, BsPeopleFill }
   from 'react-icons/bs'
 import { GiTeacher } from "react-icons/gi";
+import { useNavigate } from 'react-router-dom';
 const TeacherDashboard = () => {
+  const navigate = useNavigate();
   return (
     <>
-    <div className='flex'>
+    {/* <div className='flex'>
         <TeacherSidebar/>
         
         <div className='main-container'>
@@ -43,7 +45,17 @@ const TeacherDashboard = () => {
           </div>
           
         </div>
+      </div> */}
+       <div className="p-6 bg-blue-50">
+      <h1 className="text-2xl font-bold text-blue-600">Teacher Dashboard</h1>
+      <div className="grid grid-cols-3 gap-4 mt-6">
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/teacher/classes')}>Courses</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/teacher/assignment')}>Assignments</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/teacher/exam')}>Exams</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/teacher/attendance')}>Attendance</div>
+        <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/teacher/announcement')}>Announcements</div>
       </div>
+    </div>
     </>
   )
 }

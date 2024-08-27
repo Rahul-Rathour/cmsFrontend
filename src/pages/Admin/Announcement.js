@@ -1,27 +1,91 @@
-import React from 'react'
-import Sidebar from './Sidebar'
+// AddAnnouncement.js
+import React, { useState } from 'react';
+import axios from 'axios';
+
 const Announcement = () => {
+  const [announcementData, setAnnouncementData] = useState({
+    title: '',
+    description: '',
+    pdf: null
+  });
+
+  const handleChange = (e) => {
+    setAnnouncementData({
+      ...announcementData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleFileChange = (e) => {
+    setAnnouncementData({
+      ...announcementData,
+      pdf: e.target.files[0]
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('title', announcementData.title);
+    formData.append('description', announcementData.description);
+    formData.append('pdf', announcementData.pdf);
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/admin/add-announcement', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      alert('Announcement added successfully!');
+    } catch (error) {
+      console.error('There was an error adding the announcement!', error);
+    }
+  };
+
   return (
-    <>
-    <div className='flex'>
-        <Sidebar/>
-        <div>
-            <div>
-                <h1 className="text-xl font-semibold text-gray-900 dark:text-white mt-4">ADD ANNOUNCEMENT</h1>
-            </div>
-            <div className='mt-3'>
-              <label className='font-medium'>Announcement</label>
-                
-                <span><textarea placeholder='ENTER ANNOUNCEMENT' name='password' rows="6" cols="50" className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-invalid:border-pink-500 invalid:text-pink-600
-focus:invalid:border-pink-500 focus:invalid:ring-pink-500 pr-64' ></textarea></span>
-<button className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ml-32 mt-7">ADD ANNOUNCEMENT</button>
-            </div>
+    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
+      <h2 className="text-2xl font-bold mb-6">Add Announcement</h2>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Title</label>
+          <input
+            type="text"
+            name="title"
+            value={announcementData.title}
+            onChange={handleChange}
+            className="mt-1 p-2 block w-full border rounded-md"
+            required
+          />
         </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Description</label>
+          <textarea
+            name="description"
+            value={announcementData.description}
+            onChange={handleChange}
+            className="mt-1 p-2 block w-full border rounded-md"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Upload PDF</label>
+          <input
+            type="file"
+            name="pdf"
+            onChange={handleFileChange}
+            className="mt-1 p-2 block w-full border rounded-md"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+        >
+          Add Announcement
+        </button>
+      </form>
     </div>
-</>
-)
-}
-export default Announcement
+  );
+};
+
+export default Announcement;

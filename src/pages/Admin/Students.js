@@ -1,65 +1,147 @@
-import React from 'react'
-import Sidebar from './Sidebar'
+// frontend/src/components/Admin/AddStudent.js
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const Students = () => {
-    return (
-        <>
-            <div className='flex'>
-                <Sidebar />
-                <div>
-                    <div>
-                        <h1 className="text-xl font-semibold text-gray-900 dark:text-white mt-4">ADD STUDENT</h1>
-                    </div>
-                    <div className='mt-3'>
-                        <span><input type='text' placeholder='ENTER THE NAME OF STUDENT' name='student' className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500 ' ></input></span>
-                        <span><input type='text' placeholder='ENTER REGISTRATION NUMBER' name='registeration' className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm 
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500' ></input></span>
-                        <span><input type='text' placeholder='ENTER THE COURSE' name='course' className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500 pr-64' ></input></span>
-         <span><input type='text' placeholder='ENTER THE BRANCH OF STUDENT' name='student' className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500 ' ></input></span>
-         <span><input type='text' placeholder='ENTER THE EMAIL OF STUDENT' name='student' className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500 ' ></input></span>
-         <span><input type='text' placeholder="ENTER THE FATHER'S NAME" name='student' className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500 ' ></input></span>
-         <span><input type='text' placeholder="ENTER THE MOTHER'S NAME" name='student' className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500 ' ></input></span>
-         <span><input type='text' placeholder='ENTER THE ' name='student' className='mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500 ' ></input></span>
-      <button className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ml-32 mt-7">ADD STUDENT</button>
+  const [formData, setFormData] = useState({
+    name: '',
+    registrationNumber: '',
+    course: '',
+    branch: '',
+    email: '',
+    father_name: '',
+    mother_name: '',
+    category: '',
+  });
 
-                    </div>
-                </div>
-            </div>
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('http://localhost:5000/api/admin/add-student', formData);
+      alert('Student added successfully!');
+    } catch (error) {
+      console.error(error);
+      alert('Error adding student.');
+    }
+  };
 
-        </>
-    )
-}
+  return (
+    <div className='bg-gradient-to-r from-blue-100 via-blue-300 to-blue-400 shadow-xl rounded-lg p-10 '>
+      <div className="p-6 md:p-8 max-w-lg mx-auto bg-gradient-to-r from-white to-blue-50 shadow-xl rounded-lg ">
+        <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Add Student</h2>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Student Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="John Doe"
+              className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="registrationNumber" className="block text-sm font-medium text-gray-700">Registration Number</label>
+            <input
+              type="text"
+              id="registrationNumber"
+              name="registrationNumber"
+              placeholder="1234567890"
+              className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+              value={formData.registrationNumber}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="course" className="block text-sm font-medium text-gray-700">Course</label>
+            <input
+              type="text"
+              id="course"
+              name="course"
+              placeholder="Computer Science"
+              className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+              value={formData.course}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="branch" className="block text-sm font-medium text-gray-700">Branch</label>
+            <input
+              type="text"
+              id="branch"
+              name="branch"
+              placeholder="Engineering"
+              className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+              value={formData.branch}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@example.com"
+              className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="father_name" className="block text-sm font-medium text-gray-700">Father's Name</label>
+            <input
+              type="text"
+              id="father_name"
+              name="father_name"
+              placeholder="Mr. Doe"
+              className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+              value={formData.father_name}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="mother_name" className="block text-sm font-medium text-gray-700">Mother's Name</label>
+            <input
+              type="text"
+              id="mother_name"
+              name="mother_name"
+              placeholder="Mrs. Doe"
+              className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+              value={formData.mother_name}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
+            <input
+              type="text"
+              id="category"
+              name="category"
+              placeholder="Undergraduate"
+              className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+              value={formData.category}
+              onChange={handleChange}
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-200 transform hover:scale-105"
+          >
+            Add Student
+          </button>
+        </form>
+      </div>
 
-export default Students
+    </div>
+
+  );
+};
+
+export default Students;
