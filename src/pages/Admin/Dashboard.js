@@ -47,7 +47,7 @@ const navigate = useNavigate();
   return (
     <>
     <Navbar/>
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 mt-18">
+    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 mt-16">
       <h1 className="text-3xl font-bold text-blue-700 pt-28">Admin Dashboard</h1>
       <div className="grid grid-cols-3 gap-4 mt-6">
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/admin/students')}>Add Student</div>
