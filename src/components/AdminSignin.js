@@ -42,7 +42,7 @@ const AdminSignin = () => {
                                 <div className="w-full bg-cover relative max-w-md lg:max-w-2xl lg:w-7/12">
                                     <div data-aos='fade-right' data-aos-duration='1000' className="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
                                         <img
-                                            src="https://res.cloudinary.com/macxenon/image/upload/v1631570592/Run_-_Health_qcghbu.png" className="btn-"/>
+                                            src="/images/admin.png" className="btn-"/>
                                     </div>
                                 </div>
                                 <div className="w-full mt-20 mr-0 mb-0 ml-0 relative z-10 max-w-2xl lg:mt-0 lg:w-5/12">

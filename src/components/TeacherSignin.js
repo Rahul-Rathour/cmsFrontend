@@ -30,7 +30,7 @@ const TeacherSignin = () => {
                             <div className="w-full bg-cover relative max-w-md lg:max-w-2xl lg:w-7/12">
                                 <div data-aos ="fade-right" data-aos-duration ="1000" className="flex flex-col items-center justify-center w-full h-full relative lg:pr-10">
                                     <img
-                                        src="https://res.cloudinary.com/macxenon/image/upload/v1631570592/Run_-_Health_qcghbu.png"
+                                        src="/images/faculty.png" 
                                         className="btn-"
                                     />
                                 </div>

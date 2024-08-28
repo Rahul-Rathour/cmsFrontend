@@ -58,7 +58,7 @@ xl:px-5 lg:flex-row"
                                         className="btn-"
                                     />
                                 </div> */}
-                                <div data-aos='fade-right' data-aos-duration='1000' className=' '><img src="https://res.cloudinary.com/macxenon/image/upload/v1631570592/Run_-_Health_qcghbu.png"/> </div>
+                                <div data-aos='fade-right' data-aos-duration='1000'><img src="/images/student.png" width='80%' /> </div>
                             </div>
                             <div className="w-full mt-20 mr-0 mb-0 ml-0 relative z-10 max-w-2xl lg:mt-0 lg:w-5/12">
                                 <div
