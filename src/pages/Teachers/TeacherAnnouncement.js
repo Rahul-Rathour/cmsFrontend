@@ -26,24 +26,29 @@ function TeacherAnnouncement() {
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl mb-6">Add Announcement</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className='bg-gradient-to-r from-blue-100 via-blue-300 to-blue-400 shadow-xl rounded-lg p-10 bg-cover'>
+     <div className="p-6 md:p-8 max-w-lg mx-auto bg-gradient-to-r from-white to-blue-50 shadow-xl rounded-lg ">
+
+     <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Add Announcements</h2>
+     <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block">Announcement</label>
-          <input
-            type="text"
+        <label htmlFor="announcement" className="block text-sm font-medium text-gray-700">Announcement</label>
+          <textarea
             value={announcement}
             onChange={handleInputChange}
-            className="border p-2 w-full rounded"
+            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+            required
           />
         </div>
         <div>
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+          <button type="submit"   
+           className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-200 transform hover:scale-105">
+
             Add Announcement
           </button>
         </div>
       </form>
+      </div>
     </div>
   );
 }

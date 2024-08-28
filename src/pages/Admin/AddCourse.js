@@ -27,48 +27,51 @@ const AddCourse = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold mb-6">Add Course</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Course Name</label>
+    <div className="bg-gradient-to-r from-blue-100 via-blue-300 to-blue-400 shadow-xl rounded-lg p-10">
+              <div className="p-6 md:p-8 max-w-lg mx-auto bg-gradient-to-r from-white to-blue-50 shadow-xl rounded-lg ">
+
+      <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Add Course</h2>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label  htmlFor="title" className="block text-sm font-medium text-gray-700">Course Name</label>
           <input
             type="text"
             name="title"
             value={courseData.title}
             onChange={handleChange}
-            className="mt-1 p-2 block w-full border rounded-md"
+            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
             required
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Course Code</label>
+        <div>
+          <label htmlFor="code" className="block text-sm font-medium text-gray-700">Course Code</label>
           <input
             type="text"
             name="code"
             value={courseData.code}
             onChange={handleChange}
-            className="mt-1 p-2 block w-full border rounded-md"
+            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
             required
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Description</label>
+        <div >
+          <label htmlFor="description"  className="block text-sm font-medium text-gray-700">Description</label>
           <textarea
             name="description"
             value={courseData.description}
             onChange={handleChange}
-            className="mt-1 p-2 block w-full border rounded-md"
+            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
             required
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-        >
+          className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-200 transform hover:scale-105"
+          >
           Add Course
         </button>
       </form>
+      </div>
     </div>
   );
 };

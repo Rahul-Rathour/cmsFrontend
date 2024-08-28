@@ -17,23 +17,23 @@ const Navbar = () => {
                         className="flex items-center space-x-3 rtl:space-x-reverse"
                     >
                         <img
+<<<<<<< HEAD
                             src="https://flowbite.com/docs/images/logo.svg"
                             className="h-8"
                             alt="Flowbite Logo"
                             onClick={()=>navigate('/')}
+=======
+                            src="/images/download.jpg"
+                            className="h-12"
+                            alt="cms"
+>>>>>>> 0372fe316ae46613e7b2b529e93928b083382d4c
                         />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                             CollegeManagement
                         </span>
                     </a>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                        <button
-                            type="button"
-                            className="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                            onClick={handleGetStartedClick}
-                        >
-                            Get started
-                        </button>
+                        
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"
@@ -45,7 +45,7 @@ const Navbar = () => {
                             <svg
                                 className="w-5 h-5"
                                 aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns="/images/cms.png"
                                 fill="none"
                                 viewBox="0 0 17 14"
                             >

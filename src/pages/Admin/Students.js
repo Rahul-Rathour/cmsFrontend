@@ -40,10 +40,11 @@ const Students = () => {
               type="text"
               id="name"
               name="name"
-              placeholder="John Doe"
+              placeholder="Name"
               className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
               value={formData.name}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -56,6 +57,7 @@ const Students = () => {
               className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
               value={formData.registrationNumber}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -68,6 +70,7 @@ const Students = () => {
               className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
               value={formData.course}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -80,6 +83,7 @@ const Students = () => {
               className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
               value={formData.branch}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
