@@ -1,4 +1,4 @@
-// rahul 28/8/2024 12:42
+// rahul 31/8/2024 01:37
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
@@ -43,12 +43,18 @@ import Exams from './pages/Admin/Exams';
 import TeacherExams from './pages/Teachers/TeacherExams';
 import AddCourse from './pages/Admin/AddCourse';
 import StudentAttendance from './pages/Student/StudentAttendence';
+import About from './assets/about';
+import Services from './assets/Services';
+import Contactus from './assets/contactus';
 
 function App() {
   return (
     <div className="App">
        <Router>
         <Routes>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/services" element={<Services/>}/>
+          <Route path="/contactus" element={<Contactus/>}/>
           <Route path="/admin/students" element={<Students/>}/>
           <Route path="/admin/addteacher" element={<Teachers/>}/>
           <Route path="/admin/addcourse" element={<AddCourse/>}/>
@@ -61,7 +67,7 @@ function App() {
           <Route path="/admin/classes" element={<Classes/>}/>
           <Route path="/admin/event" element={<EventCalender/>}/>
           <Route path="/admin/profile" element={<SettingsProfile/>}/>
-          <Route path="/admin/library" element={<AdminLibrary/>}/>
+          
           <Route path="/admin/exam" element={<Exams/>}/>
 
 

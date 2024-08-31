@@ -6,7 +6,8 @@ const Teachers = () => {
   const [teacherData, setTeacherData] = useState({
     name: '',
     email: '',
-    subject: ''
+    subject: '',
+    empid:''
   });
 
   const handleChange = (e) => {
@@ -38,6 +39,18 @@ const Teachers = () => {
             name="name"
             className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
             value={teacherData.name}
+            onChange={handleChange}
+           
+            required
+          />
+        </div>
+        <div >
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">EmpId</label>
+          <input
+            type="text"
+            name="empid"
+            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
+            value={teacherData.empid}
             onChange={handleChange}
            
             required

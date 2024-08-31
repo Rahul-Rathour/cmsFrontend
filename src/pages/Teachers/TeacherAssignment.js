@@ -40,82 +40,82 @@ function TeacherAssignment() {
     };
 
     return (
-        <div className='bg-gradient-to-r from-blue-100 via-blue-300 to-blue-400 shadow-xl rounded-lg p-10 '>
-            {/* Add Assignment Form */}
-            <div className="p-6 md:p-8 max-w-lg mx-auto bg-gradient-to-r from-white to-blue-50 shadow-xl rounded-lg ">
-            <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Add New Assignment</h2>
-            <form onSubmit={handleSubmit}  className="space-y-5">
-                    <div>
-                    <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
+        <div className="container mx-auto p-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Add Assignment Form */}
+        <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Add New Assignment</h2>
+            <form onSubmit={handleSubmit}>
+                <div className="mb-5">
+                    <label htmlFor="title" className="block text-gray-600 font-medium mb-2">Title</label>
                     <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
-                        <textarea
-                            id="description"
-                            name="description"
-                            rows="4"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
-                            required
-                        ></textarea>
-                    </div>
-                    <div>
-                        <label htmlFor="course" className="block text-sm font-medium text-gray-700">Course</label>
-                        <select
-                            // type="text"
-                            id="course"
-                            name="course"
-                            value={course}
-                            onChange={(e) => setCourse(e.target.value)}
-                            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
-                            required
-                        >
-                            <option>B.Tech</option>
-                            <option>M.Tech</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label htmlFor="teacher" className="block text-sm font-medium text-gray-700">Teacher</label>
-                        <input
-                            type="text"
-                            id="teacher"
-                            name="teacher"
-                            value={teacher}
-                            onChange={(e) => setTeacher(e.target.value)}
-                            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="dueDate" className="block text-sm font-medium text-gray-700">Due Date</label>
-                        <input
-                            type="date"
-                            id="teacher"
-                            name="teacher"
-                            value={dueDate}
-                            onChange={(e) => setdueDate(e.target.value)}
-                            className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
-                            required
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-200 transform hover:scale-105"
-                        >
-                        Add Assignment
-                    </button>
-                </form>
-            </div>
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                        required
+                    />
+                </div>
+                <div className="mb-5">
+                    <label htmlFor="description" className="block text-gray-600 font-medium mb-2">Description</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="4"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                        required
+                    ></textarea>
+                </div>
+                <div className="mb-5">
+                    <label htmlFor="course" className="block text-gray-600 font-medium mb-2">Course</label>
+                    <select
+                        id="course"
+                        name="course"
+                        value={course}
+                        onChange={(e) => setCourse(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                        required
+                    >
+                        <option>B.Tech</option>
+                        <option>M.Tech</option>
+                    </select>
+                </div>
+                <div className="mb-5">
+                    <label htmlFor="teacher" className="block text-gray-600 font-medium mb-2">Teacher</label>
+                    <input
+                        type="text"
+                        id="teacher"
+                        name="teacher"
+                        value={teacher}
+                        onChange={(e) => setTeacher(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                        required
+                    />
+                </div>
+                <div className="mb-5">
+                    <label htmlFor="dueDate" className="block text-gray-600 font-medium mb-2">Due Date</label>
+                    <input
+                        type="date"
+                        id="dueDate"
+                        name="dueDate"
+                        value={dueDate}
+                        onChange={(e) => setdueDate(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                        required
+                    />
+                </div>
+                <button
+                    type="submit"
+                    className="w-full bg-blue-500 text-white py-2 rounded shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                >
+                    Add Assignment
+                </button>
+            </form>
+        </div>
 
         {/* Assignments List */}
         <div className="bg-white p-8 rounded-lg shadow-lg">

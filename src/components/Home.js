@@ -11,6 +11,13 @@ const Landingpage = () => {
         AOS.init();
         AOS.refresh();
     }, []);
+    function handleScroll() {
+        window.scroll({
+          top: document.body.offsetHeight,
+          left: 0, 
+          behavior: 'smooth',
+        });
+      }
     return (
         <>
         <Navbar/>
@@ -20,7 +27,7 @@ const Landingpage = () => {
                     <h1 className='text-6xl text-center text-blue-900 font-bold'>College Management<br /> <div className='text-center '>System</div></h1>
                     <p className='text-center text-2xl pt-3'>Where efficiency meets education</p>
                     <div className='text-center'>
-                        <button className='bg-blue-800 text-white p-3 m-5 border rounded-lg hover:bg-blue-800'>GET STARTED</button>
+                        <button className='bg-blue-800 text-white p-3 m-5 border rounded-lg hover:bg-blue-800'onClick={handleScroll}>GET STARTED</button>
                     </div>
                 </div>
             </div>

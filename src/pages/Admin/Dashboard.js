@@ -47,15 +47,9 @@ const navigate = useNavigate();
   return (
     <>
     <Navbar/>
-<<<<<<< HEAD
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 mt-16">
-      <h1 className="text-3xl font-bold text-blue-700 pt-28">Admin Dashboard</h1>
-      <div className="grid grid-cols-3 gap-4 mt-6">
-=======
     <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 mt-18">
       <h1 className="text-3xl font-bold text-blue-700 pt-28 text-center">Admin Dashboard</h1>
       <div className="grid grid-cols-3 gap-4 mt-9">
->>>>>>> 0372fe316ae46613e7b2b529e93928b083382d4c
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/admin/students')}>Add Student</div>
         {/* <div className="bg-white p-4 rounded-lg shadow-md" onClick={()=>navigate('/admin/classes')}>Add Class</div> */}
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/admin/addteacher')}>Add Teacher</div>

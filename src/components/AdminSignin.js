@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
 import axios from 'axios';
-
+ 
 const AdminSignin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -14,11 +14,15 @@ const AdminSignin = () => {
     
       try {
         const response = await axios.post('http://localhost:5000/api/admin/login', { username:email, password }); 
-        console.log(response)
+        // console.log(response)
         if (response.status === 200) {
           // Sign-in successful, redirect to admin dashboard
           
           localStorage.setItem("token",response.data.token)
+          localStorage.setItem("name",response.data.FacultyDetail.name)
+          localStorage.setItem("email",response.data.FacultyDetail.email)
+          localStorage.setItem("subject",response.data.FacultyDetail.subject)
+          localStorage.setItem("empid",response.data.FacultyDetail.empid)
           window.location.href = '/admin/dashboard';
         } else {
           // Handle sign-in errors
@@ -54,11 +58,11 @@ const AdminSignin = () => {
                                         <div className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
                                             <div className="relative">
                                                 <p className="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">
-                                                    Email
+                                                    Username
                                                 </p>
                                                 <input
 
-                                                    placeholder="123@ex.com"
+                                                    placeholder="Enter username"
                                                     type="email"
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
@@ -71,7 +75,7 @@ const AdminSignin = () => {
                                                     Password
                                                 </p>
                                                 <input
-                                                    placeholder="Password"
+                                                    placeholder=" Enter Password"
                                                     type="password"
                                                     value={password}
                                                     onChange={(e) => setPassword(e.target.value)}

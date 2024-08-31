@@ -58,6 +58,7 @@ const TeacherDashboard = () => {
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/teacher/exam')}>Exams</div>
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/teacher/attendance')}>Attendance</div>
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/teacher/announcement')}>Announcements</div>
+        <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/teacher/profile')}>Profile</div>
       </div>
     </div>
     </>

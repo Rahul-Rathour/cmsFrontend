@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from 'react';
+import { useEffect } from 'react'; 
 
 const StudentSignin = () => {
     const[email,setEmail] = useState('')
@@ -21,7 +21,7 @@ const StudentSignin = () => {
           if (response.status === 200) {
             // Sign-in successful, redirect to admin dashboard
             
-            localStorage.setItem("token",response.data.token)
+            localStorage.setItem("token",response.data.token) 
             localStorage.setItem("name",response.data.StudentDetail.name)
             localStorage.setItem("Registration Number",response.data.StudentDetail.registrationNumber)
             localStorage.setItem("Course",response.data.StudentDetail.course)
@@ -75,7 +75,7 @@ relative z-10"
                                             </p>
                                             <input
 
-                                                placeholder="123@ex.com"
+                                                placeholder="Enter Email"
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
@@ -94,7 +94,7 @@ relative z-10"
                                             </p>
                                             <input
 
-                                                placeholder="Password"
+                                                placeholder=" Your registration no."
                                                 type="password"
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}

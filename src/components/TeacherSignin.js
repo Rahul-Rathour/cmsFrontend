@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -9,19 +10,35 @@ const TeacherSignin = () => {
     const [isOpen, setIsOpen] = useState(true);
     const navigate = useNavigate(); 
 
-    const handleRegister = () => {
-        setIsOpen(!isOpen);
-        console.log(isOpen);
+    const handleSignIn = async (e) => {
+        e.preventDefault();
+      
+        try {
+          const response = await axios.post('http://localhost:5000/api/teacher/login', { email:email, password:password });
+          if (response.status === 200) {
+            // Sign-in successful, redirect to admin dashboard
+            
+            localStorage.setItem("token",response.data.token)
+            localStorage.setItem("Faculty Name",response.data.FacultyDetail.name)
+            localStorage.setItem("Faculty Email",response.data.FacultyDetail.email) 
+            localStorage.setItem("Faculty subject",response.data.FacultyDetail.subject) 
+            localStorage.setItem("Faculty Empid",response.data.FacultyDetail.empid) 
 
-        
-        navigate('/teacher/dashboard');
-    };
+            navigate('/teacher/dashboard');
+          } else {
+            // Handle sign-in errors
+            alert('Sign-in failed');
+          }
+        } catch (error) {
+          alert('Error during sign-in:', error);
+        }
+      };
     useEffect(() => {
         AOS.init();
         AOS.refresh();
     }, []);
     return (
-        <>
+        <> 
             <div>
                 <div className="bg-white relative">
                     <div
@@ -48,7 +65,7 @@ const TeacherSignin = () => {
                                             </p>
                                             <input
 
-                                                placeholder="123@ex.com"
+                                                placeholder="Enter Email"
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
@@ -61,7 +78,7 @@ const TeacherSignin = () => {
                                             </p>
                                             <input
 
-                                                placeholder="Password"
+                                                placeholder="Your Emp. ID"
                                                 type="password"
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
@@ -69,7 +86,7 @@ const TeacherSignin = () => {
                                                 className="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md"/>
                                         </div>
                                         <div className="relative">
-                                            <button onClick={handleRegister}>
+                                            <button onClick={handleSignIn}>
                                                 <a
                                                     className="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-indigo-500 rounded-lg transition duration-200 hover:bg-indigo-600 ease">
                                                     Submit
