@@ -56,8 +56,6 @@ const navigate = useNavigate();
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/admin/addcourse')}>Add Course</div>
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/admin/announcement')}>Announcements</div>
         <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/admin/exam')}>Exams</div>
-        <div className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition transform hover:-translate-y-1" onClick={()=>navigate('/admin/profile')}>Profile</div>
-        
       </div>
     </div>
       {/* <div className='flex'>

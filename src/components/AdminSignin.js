@@ -13,16 +13,10 @@ const AdminSignin = () => {
       e.preventDefault();
     
       try {
-        const response = await axios.post('http://localhost:5000/api/admin/login', { username:email, password }); 
+        const response = await axios.post('http://localhost:5000/api/admin/login', { username:email, password}); 
         // console.log(response)
         if (response.status === 200) {
           // Sign-in successful, redirect to admin dashboard
-          
-          localStorage.setItem("token",response.data.token)
-          localStorage.setItem("name",response.data.FacultyDetail.name)
-          localStorage.setItem("email",response.data.FacultyDetail.email)
-          localStorage.setItem("subject",response.data.FacultyDetail.subject)
-          localStorage.setItem("empid",response.data.FacultyDetail.empid)
           window.location.href = '/admin/dashboard';
         } else {
           // Handle sign-in errors
