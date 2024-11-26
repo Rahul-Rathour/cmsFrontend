@@ -1,4 +1,4 @@
-// frontend/src/components/Student/ViewExams.js
+//ViewExams
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../../assets/navbar';

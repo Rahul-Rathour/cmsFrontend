@@ -1,4 +1,4 @@
-// AddTeacher.js
+// AddExams
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -68,7 +68,7 @@ const Teachers = () => {
           type="submit"
           className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-200 transform hover:scale-105"
           >
-          Add Teacher
+          Add Exam
         </button>
       </form>
       </div>

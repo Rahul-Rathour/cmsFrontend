@@ -1,3 +1,5 @@
+// Admin Add courses
+
 import React from 'react'
 // import Sidebar from './Sidebar'
 import { useState, useEffect } from 'react'

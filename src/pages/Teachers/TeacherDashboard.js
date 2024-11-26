@@ -14,42 +14,7 @@ const TeacherDashboard = () => {
   return (
     <>
     <Navbar/>
-    {/* <div className='flex'>
-        <TeacherSidebar/>
-        
-        <div className='main-container'>
-          <div className='main-title'>
-            <h3 className='text-xl font-semibold text-gray-900 dark:text-white'> TEACHER DASHBOARD</h3>
-          </div>
-
-          <div className='main-cards'>
-            <div className='card'>
-              <div className='card-inner'>
-                <h3>Assignment</h3>
-                <BsPeopleFill className='card_icon' />
-              </div>
-              <h1>5</h1>
-            </div>
-            <div className='card'>
-              <div className='card-inner'>
-                <h3>Performance</h3>
-                <BsPersonWorkspace className='card_icon' />
-              </div>
-              <h1>30</h1>
-            </div>
-            <div className='card'>
-              <div className='card-inner'>
-                <h3>Terms</h3>
-                <GiTeacher className='card_icon' />
-              </div>
-              <h1>1</h1>
-              
-            </div>
-
-          </div>
-          
-        </div>
-      </div> */}
+    
     <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 mt-18">
     <h1 className="text-3xl font-bold text-blue-700 pt-28 ml-6 text-center">Teacher Dashboard</h1>
     <div className="grid grid-cols-3 gap-4 mt-9">

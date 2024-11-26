@@ -1,4 +1,4 @@
-// frontend/src/components/Admin/AddStudent.js
+// Add Students
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -79,7 +79,7 @@ const Students = () => {
               type="text"
               id="branch"
               name="branch"
-              placeholder="Engineering"
+              placeholder="CSE,IT.."
               className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
               value={formData.branch}
               onChange={handleChange}
@@ -128,7 +128,7 @@ const Students = () => {
               type="text"
               id="category"
               name="category"
-              placeholder="Undergraduate"
+              placeholder="General,OBC.."
               className="mt-1 block w-full p-4 border border-gray-300 rounded-lg shadow-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-transform transform hover:scale-105"
               value={formData.category}
               onChange={handleChange}
